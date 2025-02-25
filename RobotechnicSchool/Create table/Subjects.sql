@@ -5,9 +5,10 @@ $$
 begin
     begin
         drop table dbo.Subjects;
+        RAISE NOTICE 'Пересоздание таблицы dbo.Subjects';
     EXCEPTION WHEN OTHERS
     then
-        RAISE NOTICE 'Пересоздание таблицы dbo.Subjects';
+        RAISE NOTICE 'Новая таблица';
     end;
     begin
         create table dbo.Subjects

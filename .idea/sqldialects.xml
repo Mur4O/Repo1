@@ -3,7 +3,9 @@
   <component name="SqlDialectMappings">
     <file url="file://$PROJECT_DIR$/RobotechnicSchool/Create table/Student.sql" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/RobotechnicSchool/Create table/Teacher.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/RobotechnicSchool/Create table/TeacherToSubject.sql" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/RobotechnicSchool/createbd/PostDeployment.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/RobotechnicSchool/createbd/PreDeployment.sql" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/RobotechnicSchool/createbd/main.sql" dialect="PostgreSQL" />
     <file url="PROJECT" dialect="PostgreSQL" />
   </component>

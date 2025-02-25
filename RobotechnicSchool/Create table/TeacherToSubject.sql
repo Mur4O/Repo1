@@ -1,11 +1,11 @@
-create or replace procedure dbo.Create_Teacher()
+create or replace procedure dbo.Create_TeacherToSubject()
 LANGUAGE plpgsql
 AS
 $$
 begin
     begin
-        drop table dbo.Teacher;
-        RAISE NOTICE 'Пересоздание таблицы dbo.Teacher';
+        drop table dbo.TeacherToSubject;
+        RAISE NOTICE 'Пересоздание таблицы dbo.TeacherToSubject';
     EXCEPTION WHEN OTHERS
     then
         RAISE NOTICE 'Новая таблица';

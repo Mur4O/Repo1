@@ -5,14 +5,15 @@ $$
 begin
     begin
         drop table dbo.Groups;
+        RAISE NOTICE 'Пересоздание таблицы dbo.Groups';
     EXCEPTION WHEN OTHERS
     then
-        RAISE NOTICE 'Пересоздание таблицы dbo.Groups';
+        RAISE NOTICE 'Новая таблица';
     end;
     begin
         create table dbo.Groups
         (
-         Name           text        not null
+         Name   text    not null
 
         ,constraint PK_dbo_Groups_Name primary key (Name)
         );

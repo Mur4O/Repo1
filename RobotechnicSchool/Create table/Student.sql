@@ -5,9 +5,10 @@ $$
 begin
     begin
         drop table dbo.Student;
+        RAISE NOTICE 'Пересоздание таблицы dbo.Student';
     EXCEPTION WHEN OTHERS
     then
-        RAISE NOTICE 'Пересоздание таблицы dbo.Student';
+        RAISE NOTICE 'Новая таблица';
     end;
     begin
         create table dbo.Student
