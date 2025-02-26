@@ -1,5 +1,5 @@
-SELECT con.conname
-    FROM pg_catalog.pg_constraint con
-        INNER JOIN pg_catalog.pg_class rel ON rel.oid = con.conrelid
-        INNER JOIN pg_catalog.pg_namespace nsp ON nsp.oid = connamespace
-    where con.conname like 'fk%'
+select
+from information_schema.constraint_table_usage
+where
+    constraint_schema = 'dbo'
+    and constraint_name like 'pk%'

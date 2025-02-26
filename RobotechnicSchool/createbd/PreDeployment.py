@@ -11,12 +11,16 @@ cursor = conn.cursor()
 
 query = " ".join(lines)
 
+rows = []
 cursor.execute(query)
 for row in cursor:
-    print(row)
+    rows.append(row[0])
+print(rows)
+
+query = ""
+
 
 conn.commit()
-
 cursor.close()
 conn.close()
 

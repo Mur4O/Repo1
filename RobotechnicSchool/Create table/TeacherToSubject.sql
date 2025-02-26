@@ -11,17 +11,12 @@ begin
         RAISE NOTICE 'Новая таблица';
     end;
     begin
-        create table dbo.Teacher
+        create table dbo.TeacherToSubject
         (
-         ID             SERIAL      not null
-        ,FIO            text        not null
-        ,PasportSerie   char(4)     not null
-        ,PassportNumber char(6)     not null
-        ,Phone          text        not null
-        ,Address        text        not null
-        ,DateOfBirth    date
+         IDTeacher      int      not null
+        ,
 
-        ,constraint PK_dbo_Teacher_ID primary key (ID)
+        ,constraint PK_dbo_TeacherToSubject_ID primary key (ID)
         );
     end;
 end;
