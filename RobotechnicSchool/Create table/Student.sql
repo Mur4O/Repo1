@@ -20,6 +20,7 @@ begin
         ,Phone          text        not null
         ,Address        text        not null
         ,DateOfBirth    date
+        ,GroupName      text        not null
 
         ,constraint PK_dbo_Student_ID primary key (ID)
         );

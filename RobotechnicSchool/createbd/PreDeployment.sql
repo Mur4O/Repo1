@@ -1,5 +1,5 @@
-select
-from information_schema.constraint_table_usage
-where
-    constraint_schema = 'dbo'
-    and constraint_name like 'pk%'
+SELECT
+    tc.table_name
+    ,tc.constraint_name
+FROM information_schema.table_constraints AS tc
+WHERE tc.constraint_type = 'FOREIGN KEY';

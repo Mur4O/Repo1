@@ -1,13 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/OdejdaDlaRuchekPSTGRS/DB/createdb.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/OdejdaDlaRuchekPSTGRS/DB/createschema.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/OdejdaDlaRuchekPSTGRS/Tables/CategoryProduct.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/OdejdaDlaRuchekPSTGRS/Tables/Client.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/OdejdaDlaRuchekPSTGRS/Tables/Gender.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/RobotechnicSchool/Create table/Attendance.sql" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/RobotechnicSchool/Create table/Groups.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/RobotechnicSchool/Create table/Schedule.sql" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/RobotechnicSchool/Create table/Student.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/RobotechnicSchool/Create table/Subjects.sql" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/RobotechnicSchool/Create table/Teacher.sql" dialect="PostgreSQL" />
-    <file url="file://$PROJECT_DIR$/RobotechnicSchool/Create table/TeacherToSubject.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/RobotechnicSchool/Views/View1.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/RobotechnicSchool/createbd/CreateDatabase.sql" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/RobotechnicSchool/createbd/PostDeployment.sql" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/RobotechnicSchool/createbd/PreDeployment.sql" dialect="PostgreSQL" />
-    <file url="file://$PROJECT_DIR$/RobotechnicSchool/createbd/main.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/RobotechnicSchool/test.sql" dialect="PostgreSQL" />
     <file url="PROJECT" dialect="PostgreSQL" />
   </component>
 </project>
