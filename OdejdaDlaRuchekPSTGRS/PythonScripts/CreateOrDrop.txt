@@ -1,0 +1,19 @@
+create or replace procedure {2}.Create_{0}()
+LANGUAGE plpgsql
+AS
+$$
+begin
+    begin
+        drop table {2}.{0};
+        RAISE NOTICE 'Пересоздание таблицы {2}.{0}';
+    EXCEPTION WHEN OTHERS
+    then
+        RAISE NOTICE 'Новая таблица';
+    end;
+    begin
+        {1}
+    end;
+end;
+$$;
+
+call {2}.Create_{0}();
