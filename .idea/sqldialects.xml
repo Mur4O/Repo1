@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/OdejdaDlaRuchekPSTGRS/DB/PathFile.sql" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/OdejdaDlaRuchekPSTGRS/DB/createdb.sql" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/OdejdaDlaRuchekPSTGRS/DB/createschema.sql" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/OdejdaDlaRuchekPSTGRS/Tables/CategoryProduct.sql" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/OdejdaDlaRuchekPSTGRS/Tables/Client.sql" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/OdejdaDlaRuchekPSTGRS/Tables/Gender.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/OdejdaDlaRuchekPSTGRS/Tables/Product.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/OdejdaDlaRuchekPSTGRS/Tables/ProductPhoto.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/OdejdaDlaRuchekPSTGRS/Tables/ProductSale.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/OdejdaDlaRuchekPSTGRS/Tables/Service.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/OdejdaDlaRuchekPSTGRS/Tables/ServicePhoto.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/OdejdaDlaRuchekPSTGRS/Tables/Tag.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/OdejdaDlaRuchekPSTGRS/Tables/TagOfClient.sql" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/RobotechnicSchool/Create table/Attendance.sql" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/RobotechnicSchool/Create table/Groups.sql" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/RobotechnicSchool/Create table/Schedule.sql" dialect="PostgreSQL" />

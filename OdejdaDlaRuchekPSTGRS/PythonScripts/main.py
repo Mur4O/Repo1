@@ -16,11 +16,11 @@ def read_file(path):
     return fin
 
 def create_queries(path_to_files, path_to_query, names, shema, file_names):
-    query = read_file(path_to_query)
     return_list = []
     i = 0
 
     for name in names:
+        query = read_file(path_to_query)
         path_to_file = f'{path_to_files}/{file_names[i]}'
         sub_query = read_file(path_to_file)
 
