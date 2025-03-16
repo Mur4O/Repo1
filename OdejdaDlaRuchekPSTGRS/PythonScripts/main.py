@@ -29,3 +29,52 @@ def create_queries(path_to_files, path_to_query, names, shema, file_names):
         i += 1
 
     return return_list
+
+def create_tables(conn, cursor):
+    path_to_tables = '/Users/yarik/PycharmProjects/Repo1/OdejdaDlaRuchekPSTGRS/Tables'
+    table_names, file_names = files_in_path(path_to_tables)
+    path_to_query = '/Users/yarik/PycharmProjects/Repo1/OdejdaDlaRuchekPSTGRS/PythonScripts/CreateOrDrop.txt'
+    schema = 'dbo'
+
+    queries = create_queries(path_to_tables, path_to_query, table_names, schema, file_names)
+    # print(queries[4])
+
+    for q in queries:
+        # print(q)
+        cursor.execute(q)
+        conn.commit()
+
+
+def PreDeployment(conn, cursor):
+    path = '/Users/yarik/PycharmProjects/Repo1/OdejdaDlaRuchekPSTGRS/DB/AllFKs.sql'
+
+    with open(path, 'r') as fp:
+        lines = fp.readlines()
+
+    query = " ".join(lines)
+
+    rows = []
+    cursor.execute(query)
+    for row in cursor:
+        rows.append(row)
+    # print(rows)
+
+    i: int = -1
+    for element in rows:
+        i += 1
+        query = f'alter table dbo.{rows[i][0]} drop constraint {rows[i][1]}'
+        # print(query)
+
+        cursor.execute(query)
+    conn.commit()
+
+def PostDeployment(conn, cursor):
+    path = '/Users/yarik/PycharmProjects/Repo1/OdejdaDlaRuchekPSTGRS/Constraints/FKs.sql'
+
+    with open(path, 'r') as fp:
+        lines = fp.readlines()
+
+    query = " ".join(lines)
+
+    cursor.execute(query)
+    conn.commit()

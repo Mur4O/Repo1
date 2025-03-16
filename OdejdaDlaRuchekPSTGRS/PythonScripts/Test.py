@@ -1,3 +1,3 @@
-
-str = 'Text with word.sql'
-print(str[:-4])
+list = [0,1,2,3,4]
+list.remove(1)
+print(list[1])
