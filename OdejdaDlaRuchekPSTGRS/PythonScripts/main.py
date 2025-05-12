@@ -1,5 +1,7 @@
 import os
 import psycopg
+import pandas as pd
+
 
 def files_in_path(path):
     dir_list = os.listdir(path)
@@ -48,6 +50,9 @@ def create_tables(conn, cursor):
 def PreDeployment(conn, cursor):
     path = '/Users/yarik/PycharmProjects/Repo1/OdejdaDlaRuchekPSTGRS/DB/AllFKs.sql'
 
+    query = ("SET datestyle = 'ISO, DMY';")
+    cursor.execute(query)
+
     with open(path, 'r') as fp:
         lines = fp.readlines()
 
@@ -69,6 +74,7 @@ def PreDeployment(conn, cursor):
     conn.commit()
 
 def PostDeployment(conn, cursor):
+    # Поднимаем ограничения
     path = '/Users/yarik/PycharmProjects/Repo1/OdejdaDlaRuchekPSTGRS/Constraints/FKs.sql'
 
     with open(path, 'r') as fp:
@@ -78,3 +84,82 @@ def PostDeployment(conn, cursor):
 
     cursor.execute(query)
     conn.commit()
+
+    # Заполняем справочники
+    path = '/Users/yarik/PycharmProjects/Repo1/OdejdaDlaRuchekPSTGRS/DB/Inserts.sql'
+
+    with open(path, 'r') as fp:
+        lines = fp.readlines()
+
+    query = " ".join(lines)
+
+    cursor.execute(query)
+    conn.commit()
+
+    # Парсим данные из csv
+    path = '/Users/yarik/PycharmProjects/Repo1/OdejdaDlaRuchekPSTGRS/DataForInsert/client.csv'
+    data = pd.read_csv(path, delimiter=';')
+    tuples = [tuple(x) for x in data.to_numpy()]
+    # Comma-separated dataframe columns
+    cols = ','.join(list(data.columns))
+    # SQL query to execute
+    query = "INSERT INTO %s(%s) VALUES(%%s,%%s,%%s,%%s,%%s,%%s,%%s,%%s,%%s)" % ('dbo.client', 'firstname, lastname, patronymic, birthday, registrationdate, email, phone, gendercode, photopath')
+
+    try:
+        cursor.executemany(query, tuples)
+        conn.commit()
+    except (Exception, psycopg.DatabaseError) as error:
+        print("Error: %s" % error)
+        conn.rollback()
+        cursor.close()
+        return 1
+
+    path = '/Users/yarik/PycharmProjects/Repo1/OdejdaDlaRuchekPSTGRS/DataForInsert/service_a_import.csv'
+    data = pd.read_csv(path, delimiter=';')
+    tuples = [tuple(x) for x in data.to_numpy()]
+    # SQL query to execute
+    query = "INSERT INTO %s(%s) VALUES(%%s,%%s,%%s,%%s,%%s)" % (
+    'dbo.service', 'title, cost, durationinstock, description, discount')
+
+    try:
+        cursor.executemany(query, tuples)
+        conn.commit()
+    except (Exception, psycopg.DatabaseError) as error:
+        print("Error: %s" % error)
+        conn.rollback()
+        cursor.close()
+        return 1
+
+    path = '/Users/yarik/PycharmProjects/Repo1/OdejdaDlaRuchekPSTGRS/DataForInsert/clientservice_a_import.csv'
+    data = pd.read_csv(path, delimiter=';')
+    tuples = [tuple(x) for x in data.to_numpy()]
+    # SQL query to execute
+    query = "INSERT INTO %s(%s) VALUES(%%s,%%s,%%s,%%s)" % (
+        'dbo.clientservice', 'ClientId, ServiceId, StartTime, Comment')
+
+    try:
+        cursor.executemany(query, tuples)
+        conn.commit()
+    except (Exception, psycopg.DatabaseError) as error:
+        print("Error: %s" % error)
+        conn.rollback()
+        cursor.close()
+        return 1
+    cursor.close()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

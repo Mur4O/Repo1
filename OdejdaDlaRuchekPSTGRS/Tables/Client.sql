@@ -7,7 +7,7 @@ create table dbo.Client
     ,Birthday           date            null
     ,RegistrationDate   date        not null    constraint DF_dbo_Client__RegistrationDate default current_timestamp
     ,Email              text        not null
-    ,Phone              int         not null
+    ,Phone              text        not null
     ,GenderCode         nchar(1)    not null
     ,PhotoPath          text            null
 
